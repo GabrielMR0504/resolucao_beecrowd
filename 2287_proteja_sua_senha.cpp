@@ -24,17 +24,17 @@ int main() {
         cin >> n;
         senha_cod += n;
       }
-      // printf("senha_cod: %s\n", senha_cod.c_str());
       char n_1, n_2;
+      
       // monta matriz que relaciona comb. numeros com senhas codif.
       for (int i = 0; i < 6; i++) {
         n_1 = comb_num[(senha_cod[i] - 'A') * 2];
         n_2 = comb_num[(senha_cod[i] - 'A') * 2 + 1];
-        // printf("n1: %c n2: %c\n", n_1, n_2);
         m_comb[i][2 * h] = n_1;
         m_comb[i][2 * h + 1] = n_2;
       }
     }
+    
     printf("Teste %d\n", n_teste);
     // descobre senha a partir da matriz a senha
     for (int i = 0; i < 6; i++) {
