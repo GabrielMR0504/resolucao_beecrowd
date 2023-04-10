@@ -1,0 +1,33 @@
+//Parafusos e Porcas #1520
+
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+int main() {
+  int n, a, b, val;
+  while (cin >> n) {
+    vector<int>::iterator pBegin;
+    vector<int>::iterator pEnd;
+    vector<int> v;
+    for (int i = 0; i < n; i++) {
+      cin >> a >> b;
+      for (; a <= b; a++) {
+        v.push_back(a);
+      }
+    }
+    sort(v.begin(), v.end());
+    cin >> val;
+    pBegin = lower_bound(v.begin(), v.end(), val);
+    pEnd = upper_bound(v.begin(), v.end(), val);
+
+    if (*pBegin != *pEnd) {
+      printf("%d found from %d to %d\n", val, pBegin - v.begin(),
+             pEnd - v.begin() - 1);
+    } else {
+      printf("%d not found\n", val);
+    }
+  }
+}
