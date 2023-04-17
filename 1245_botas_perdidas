@@ -1,0 +1,33 @@
+Botas Perdidas #1245
+
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+  int input, tam_bota, cont;
+  char pe_bota;
+
+  while (cin >> input) {
+
+    vector<pair<int, int>> botas(31, make_pair(0, 0));
+    cont = 0;
+
+    for (int i = 0; i < input; i++) {
+      cin >> tam_bota >> pe_bota;
+      if (pe_bota == 'E')
+        botas[tam_bota - 30].first++;
+      else if (pe_bota == 'D')
+        botas[tam_bota - 30].second++;
+    }
+
+    for (int i = 0; i < 31; i++) {
+      cont += min(botas[i].first, botas[i].second);
+    }
+
+    cout << cont << "\n";
+  }
+}
